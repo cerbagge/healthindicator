@@ -23,7 +23,7 @@ public final class Config {
 
     public boolean enabled = true;
     /** NUMBER(15), NUMBER_MAX(15 / 20), HEARTS(하트 그림), BAR(막대), PERCENT(75%). */
-    public Look look = Look.NUMBER;
+    public Look look = Look.HEARTS;
     /** 글자 크기(%). */
     public int scale = 100;
     /** 이 거리(블록) 안의 상대만 표시한다. */
@@ -53,7 +53,7 @@ public final class Config {
             }
         }
         if (c == null) c = new Config();
-        if (c.look == null) c.look = Look.NUMBER;
+        if (c.look == null) c.look = Look.HEARTS;
         c.scale = Math.max(50, Math.min(200, c.scale));
         c.distance = Math.max(4, Math.min(64, c.distance));
         c.save();

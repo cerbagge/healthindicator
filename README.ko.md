@@ -43,10 +43,58 @@
 
 처음 실행하면 `config/healthindicator.json` 이 만들어집니다. 게임을 끈 상태에서 고친 뒤 다시 실행하면 적용됩니다.
 
+### 설정 방법
+
+1. 게임을 한 번 실행했다가 끕니다. 이때 설정 파일이 만들어집니다.
+2. 게임 폴더의 `config` 폴더를 엽니다.
+   - 기본 런처: Windows 는 `%appdata%\.minecraft\config`, macOS 는 `~/Library/Application Support/minecraft/config`, Linux 는 `~/.minecraft/config`
+   - 다른 런처(Prism, CurseForge, Modrinth 등): 해당 인스턴스 폴더 안의 `config`
+3. `healthindicator.json` 을 메모장 같은 텍스트 편집기로 엽니다.
+4. 바꾸고 싶은 값을 고치고 저장합니다. 따옴표(`"`)와 쉼표(`,`)는 그대로 두고 값만 바꿉니다.
+5. 게임을 다시 실행합니다.
+
+예시: 체력을 숫자로 보고, 몹 체력도 켜고, 글자를 조금 크게 하려면
+
+```json
+{
+  "enabled": true,
+  "look": "NUMBER",
+  "scale": 120,
+  "distance": 32,
+  "players": true,
+  "entities": true,
+  "npcs": false,
+  "self": false,
+  "hideFull": false,
+  "absorption": true,
+  "gradient": true,
+  "color": 16733525
+}
+```
+
+`look` 값에 따른 모양:
+
+| 값 | 모양 |
+|---|---|
+| `HEARTS` | 하트 그림(한 줄 10칸, 최대 2줄). 칸이 20을 넘는 큰 몹은 `❤ × 25` 글자로 표시 |
+| `NUMBER` | `❤ 15` |
+| `NUMBER_MAX` | `15 / 20` |
+| `BAR` | 막대 10칸 |
+| `PERCENT` | `75%` |
+
+참고:
+
+- 파일을 잘못 고쳐서 읽을 수 없으면 기본값으로 실행하고 파일을 기본값으로 다시 저장합니다. 고치기 전에 복사본을 만들어 두시면 좋습니다.
+- `scale`(50~200)과 `distance`(4~64)는 범위를 벗어나면 가장 가까운 값으로 맞춰집니다.
+- 이미 설정 파일이 있으면 그 파일의 값을 씁니다. 예전 버전에서 만든 파일은 `look` 이 `NUMBER` 로 남아 있으니, 하트 그림을 보려면 `HEARTS` 로 바꾸거나 파일을 지우고 다시 실행합니다.
+- 켜기/끄기는 게임 안에서도 할 수 있습니다. 설정 → 조작 → 키 설정에서 "머리 위 체력 켜기/끄기" 에 키를 지정합니다(기본 키 없음).
+
+### 항목
+
 | 항목 | 기본값 | 설명 |
 |---|---|---|
 | `enabled` | `true` | 켜기/끄기. 조작 설정의 "머리 위 체력 켜기/끄기" 키로도 바꿀 수 있습니다(기본 키 없음). |
-| `look` | `NUMBER` | `NUMBER`, `NUMBER_MAX`, `HEARTS`, `BAR`, `PERCENT` |
+| `look` | `HEARTS` | `NUMBER`, `NUMBER_MAX`, `HEARTS`, `BAR`, `PERCENT` |
 | `scale` | `100` | 글자 크기(%, 50~200) |
 | `distance` | `32` | 보이는 거리(블록, 4~64) |
 | `players` | `true` | 플레이어 체력 |

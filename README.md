@@ -43,10 +43,58 @@ Coordinates, distance and direction are never displayed.
 
 `config/healthindicator.json` is created on first launch. Edit it while the game is closed, then start the game again.
 
+### How to configure
+
+1. Launch the game once and close it. This creates the config file.
+2. Open the `config` folder in your game directory.
+   - Vanilla launcher: `%appdata%\.minecraft\config` on Windows, `~/Library/Application Support/minecraft/config` on macOS, `~/.minecraft/config` on Linux
+   - Other launchers (Prism, CurseForge, Modrinth, etc.): the `config` folder inside the instance folder
+3. Open `healthindicator.json` in a text editor such as Notepad.
+4. Change the values you want and save. Keep the quotes (`"`) and commas (`,`) as they are; change only the values.
+5. Start the game again.
+
+Example: show health as a number, also show mob health, and make the text a bit larger
+
+```json
+{
+  "enabled": true,
+  "look": "NUMBER",
+  "scale": 120,
+  "distance": 32,
+  "players": true,
+  "entities": true,
+  "npcs": false,
+  "self": false,
+  "hideFull": false,
+  "absorption": true,
+  "gradient": true,
+  "color": 16733525
+}
+```
+
+What each `look` value shows:
+
+| Value | Shows |
+|---|---|
+| `HEARTS` | Heart icons (10 per row, up to 2 rows). Large mobs needing more than 20 hearts are shown as text, e.g. `❤ × 25` |
+| `NUMBER` | `❤ 15` |
+| `NUMBER_MAX` | `15 / 20` |
+| `BAR` | A 10-segment bar |
+| `PERCENT` | `75%` |
+
+Notes:
+
+- If the file can't be read (for example, a typo), the mod starts with default values and rewrites the file with defaults. Making a backup before editing is a good idea.
+- `scale` (50 to 200) and `distance` (4 to 64) are clamped to the nearest allowed value.
+- An existing config file keeps its values. Files created by older versions still have `look` set to `NUMBER`; to get heart icons, change it to `HEARTS` or delete the file and launch again.
+- You can also toggle the display in game: Options → Controls → Key Binds, then assign a key to "Toggle Health Indicator" (unbound by default).
+
+### Keys
+
 | Key | Default | Description |
 |---|---|---|
 | `enabled` | `true` | On/off. Can also be toggled with the "Toggle Health Indicator" key in Controls (unbound by default). |
-| `look` | `NUMBER` | `NUMBER`, `NUMBER_MAX`, `HEARTS`, `BAR`, `PERCENT` |
+| `look` | `HEARTS` | `NUMBER`, `NUMBER_MAX`, `HEARTS`, `BAR`, `PERCENT` |
 | `scale` | `100` | Text size (%, 50 to 200) |
 | `distance` | `32` | View distance (blocks, 4 to 64) |
 | `players` | `true` | Player health |
