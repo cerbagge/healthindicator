@@ -1,73 +1,75 @@
 # Health Indicator
 
-플레이어와 생물의 머리 위에 체력을 표시하는 Minecraft 1.20.1 Fabric 클라이언트 모드입니다.
+**English** | [한국어](README.ko.md)
+
+A client-side Minecraft 1.20.1 Fabric mod that shows health above players and mobs.
 
 **Health Indicator by cerbagge**
 
-## 특징
+## Features
 
-- 체력 모양을 고를 수 있습니다: 숫자(`❤ 15`), 숫자와 최대(`15 / 20`), 하트 그림, 막대, 퍼센트.
-- 흡수 체력(노란 하트), 체력에 따른 색 변화(초록→빨강), 글자 크기, 높이·좌우 위치, 보이는 거리를 설정할 수 있습니다.
-- 플레이어, 생물(몹·동물), 서버의 플레이어 모양 NPC 를 각각 켜고 끌 수 있습니다.
+- Choose how health is shown: number (`❤ 15`), number with max (`15 / 20`), heart icons, bar, or percent.
+- Configure absorption hearts, health-based color (green → red), text size, height and side offset, and view distance.
+- Toggle players, mobs/animals, and server player-shaped NPCs separately.
 
-## 안 보이는 상대의 위치를 알려 주지 않습니다 (ESP 없음)
+## No ESP: it never reveals players you cannot see
 
-이 모드는 화면에 보이는 상대의 체력만 보여 줍니다. 다음 상대는 체력을 표시하지 않습니다.
+This mod only shows the health of entities that are visible on your screen. Health is not shown in these cases:
 
-| 상황 | 처리 |
+| Case | Behavior |
 |---|---|
-| 벽 너머의 상대 | 글자와 하트를 깊이 검사를 하는 층에 그려서 벽을 통과해 보이지 않습니다. |
-| 몸이 블록에 가려진 상대 | 카메라에서 머리·가슴·발 중 한 곳도 보이지 않으면 그리지 않습니다. 체력을 이름표 위로 올려도 벽 위로 체력만 보이는 일이 없습니다. |
-| 투명한 상대(투명화 물약) | 그리지 않습니다. |
-| 서버가 이름표를 숨긴 플레이어 | 팀 설정(`nametagVisibility`)으로 이름표가 숨겨지면 그리지 않습니다. |
-| 웅크린 플레이어 | 그리지 않습니다. |
-| F1 로 화면을 숨겼을 때 | 그리지 않습니다. |
+| Behind walls | Text and hearts are drawn with depth testing, so they never show through walls. |
+| Body blocked by blocks | If none of the head, chest or feet is visible from the camera, nothing is drawn. Raising the label above the name tag cannot make it peek over a wall. |
+| Invisible (Potion of Invisibility) | Not drawn. |
+| Name tag hidden by the server | Not drawn when the team rule (`nametagVisibility`) hides the name tag. |
+| Sneaking players | Not drawn. |
+| HUD hidden with F1 | Not drawn. |
 
-좌표, 거리, 방향은 어디에도 표시하지 않습니다.
+Coordinates, distance and direction are never displayed.
 
-> 서버마다 규정이 다릅니다. 사용하는 서버의 규정은 직접 확인해 주십시오.
+> Server rules differ. Please check the rules of the server you play on.
 
-## 설치
+## Installation
 
-1. Fabric Loader 0.16.10 이상과 Fabric API 를 설치합니다.
-2. 이 저장소의 [Releases](https://github.com/cerbagge/healthindicator/releases)에서 받은 jar 를 `mods` 폴더에 넣습니다.
+1. Install Fabric Loader 0.16.10 or newer and Fabric API.
+2. Put the jar from [Releases](https://github.com/cerbagge/healthindicator/releases) into your `mods` folder.
 
-## 설정
+## Configuration
 
-처음 실행하면 `config/healthindicator.json` 이 만들어집니다. 게임을 끈 상태에서 고친 뒤 다시 실행하면 적용됩니다.
+`config/healthindicator.json` is created on first launch. Edit it while the game is closed, then start the game again.
 
-| 항목 | 기본값 | 설명 |
+| Key | Default | Description |
 |---|---|---|
-| `enabled` | `true` | 켜기/끄기. 조작 설정의 "머리 위 체력 켜기/끄기" 키로도 바꿀 수 있습니다(기본 키 없음). |
+| `enabled` | `true` | On/off. Can also be toggled with the "Toggle Health Indicator" key in Controls (unbound by default). |
 | `look` | `NUMBER` | `NUMBER`, `NUMBER_MAX`, `HEARTS`, `BAR`, `PERCENT` |
-| `height` | `0` | 이름표 위에서 올리거나 내리는 높이(1블록 = 100, -100~300) |
-| `side` | `0` | 좌우 위치(1블록 = 100, -200~200) |
-| `scale` | `100` | 글자 크기(%, 50~200) |
-| `distance` | `32` | 보이는 거리(블록, 4~64) |
-| `players` | `true` | 플레이어 체력 |
-| `entities` | `false` | 생물(몹·동물) 체력 |
-| `npcs` | `false` | 서버의 플레이어 모양 NPC 체력 |
-| `self` | `false` | 3인칭에서 내 체력 |
-| `hideFull` | `false` | 체력이 가득하면 숨기기 |
-| `absorption` | `true` | 흡수 체력 함께 표시 |
-| `gradient` | `true` | 체력에 따라 색 바꾸기 |
-| `color` | `16733525` | `gradient` 가 꺼졌을 때 글자 색(RGB 정수, 16733525 = `#FF5555`) |
+| `height` | `0` | Extra height above the name tag (1 block = 100, -100 to 300) |
+| `side` | `0` | Side offset (1 block = 100, -200 to 200) |
+| `scale` | `100` | Text size (%, 50 to 200) |
+| `distance` | `32` | View distance (blocks, 4 to 64) |
+| `players` | `true` | Player health |
+| `entities` | `false` | Mob/animal health |
+| `npcs` | `false` | Health of server player-shaped NPCs |
+| `self` | `false` | Your own health in third person |
+| `hideFull` | `false` | Hide when health is full |
+| `absorption` | `true` | Show absorption hearts |
+| `gradient` | `true` | Color by health |
+| `color` | `16733525` | Text color when `gradient` is off (RGB integer, 16733525 = `#FF5555`) |
 
-## 빌드
+## Building
 
-JDK 21 로 Gradle 을 실행합니다(모드 자체는 Java 17 대상입니다).
+Run Gradle with JDK 21 (the mod itself targets Java 17).
 
 ```
 ./gradlew build
 ```
 
-## 라이선스
+## License
 
-자체 라이선스입니다. 자세한 내용은 [LICENSE](LICENSE) 를 확인해 주십시오.
+Custom license. See [LICENSE](LICENSE) for the full terms.
 
-- **출처 표시**: 소개하거나 언급할 때 "Health Indicator by cerbagge" 와 이 저장소 주소를 함께 표시해야 합니다.
-- **2차 배포 금지**: 원본이든 수정본이든 다시 배포할 수 없습니다(다른 사이트 업로드, 모드팩·런처 포함).
-- **상업적 사용 금지**
-- **코드 수정 금지**: 수정, 2차 저작물 제작, 코드 일부를 다른 프로젝트에 복사하는 것을 금지합니다.
+- **Attribution required**: credit "Health Indicator by cerbagge" with the repository URL when introducing or mentioning it.
+- **No redistribution**: original or modified, including re-uploads, modpacks and launchers.
+- **No commercial use**
+- **No modification**: no modifications, derivative works, or copying code into other projects.
 
-소스 열람과, 이 저장소에서 공식 배포한 파일을 개인적·비상업적으로 사용하는 것만 허용합니다.
+Only viewing the source and personal, non-commercial use of files officially released in this repository are permitted.
