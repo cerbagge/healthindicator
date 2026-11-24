@@ -1,0 +1,69 @@
+Health Indicator License
+
+Copyright (c) 2026 cerbagge. All rights reserved.
+
+[한국어]
+
+이 저장소의 소스 코드, 리소스, 빌드된 파일(이하 "이 소프트웨어")의 저작권은 cerbagge 에게 있습니다.
+이 라이선스가 명시적으로 허용하지 않는 모든 권리는 저작권자에게 있습니다.
+
+1. 허용하는 것
+   a. 이 저장소에서 소스 코드를 열람하는 것.
+   b. 저작권자가 이 저장소(GitHub Releases 등)를 통해 공식으로 배포한 파일을 받아,
+      개인적이고 비상업적인 목적으로 자신의 게임에 설치해 사용하는 것.
+
+2. 출처 표시
+   이 소프트웨어를 소개하거나 언급하거나 사용 장면을 공개할 때에는
+   "Health Indicator by cerbagge" 와 이 저장소 주소(https://github.com/cerbagge/healthindicator)를 함께 표시해야 합니다.
+
+3. 금지하는 것
+   a. 2차 배포: 이 소프트웨어의 전부 또는 일부를 원본 그대로든 수정한 형태로든 다시 배포하는 것.
+      다른 사이트·서버·클라우드에 다시 올리는 것, 모드팩·설치 프로그램·런처에 넣어 배포하는 것을 포함합니다.
+   b. 상업적 사용: 이 소프트웨어를 판매하거나, 유료 상품·서비스에 포함하거나, 수익을 얻는 데 이용하는 것.
+   c. 코드 수정: 이 소프트웨어를 수정하거나, 이를 바탕으로 2차 저작물을 만들거나,
+      코드의 일부를 복사해 다른 프로젝트에 사용하는 것.
+
+4. GitHub 이용약관에 따라 GitHub 사용자는 이 저장소를 열람하고 GitHub 안에서 포크할 수 있습니다.
+   이것은 위 3항의 행위를 허락하는 것이 아니며, 포크한 저장소에도 이 라이선스가 그대로 적용됩니다.
+
+5. 위 조건 밖의 사용을 원하면 저작권자에게 서면(이메일·GitHub 이슈 등)으로 허락을 받아야 합니다.
+
+6. 이 소프트웨어는 "있는 그대로" 제공되며, 어떠한 명시적·묵시적 보증도 하지 않습니다.
+   이 소프트웨어를 사용해 생긴 손해(서버 규정 위반으로 인한 제재를 포함)에 대해 저작권자는 책임지지 않습니다.
+   사용하는 서버의 규정은 사용자가 직접 확인해야 합니다.
+
+7. 위 조건을 어기면 이 라이선스가 부여한 권리는 즉시 효력을 잃습니다.
+
+[English]
+
+The source code, resources and built files in this repository (the "Software") are copyrighted by cerbagge.
+All rights not expressly granted by this license are reserved by the copyright holder.
+
+1. Permitted
+   a. Viewing the source code in this repository.
+   b. Downloading files officially released by the copyright holder through this repository
+      (e.g. GitHub Releases) and installing them in your own game for personal, non-commercial use.
+
+2. Attribution
+   When introducing, mentioning or showing the Software, you must credit
+   "Health Indicator by cerbagge" together with the repository URL (https://github.com/cerbagge/healthindicator).
+
+3. Prohibited
+   a. Redistribution: redistributing all or any part of the Software, whether original or modified,
+      including re-uploading it to other sites, servers or cloud storage, or bundling it in modpacks, installers or launchers.
+   b. Commercial use: selling the Software, including it in paid products or services, or using it to generate revenue.
+   c. Modification: modifying the Software, creating derivative works based on it,
+      or copying any part of its code into other projects.
+
+4. Under the GitHub Terms of Service, GitHub users may view this repository and fork it within GitHub.
+   This does not grant permission for any act listed in Section 3, and this license continues to apply to any fork.
+
+5. Any use beyond these terms requires written permission (e-mail, GitHub issue, etc.) from the copyright holder.
+
+6. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+   The copyright holder is not liable for any damages arising from the use of the Software,
+   including penalties for violating server rules. Users are responsible for checking the rules of the servers they play on.
+
+7. Any violation of these terms immediately terminates the rights granted by this license.
+
+If the Korean and English versions differ, the Korean version prevails.

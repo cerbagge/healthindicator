@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "healthindicator",
+  "version": "${version}",
+  "name": "Health Indicator",
+  "description": "플레이어·생물 머리 위에 체력을 표시합니다. 벽에 가려진 상대, 투명한 상대, 이름표가 숨겨진 상대, 웅크린 상대는 표시하지 않습니다.",
+  "authors": ["cerbagge"],
+  "contact": { "sources": "https://github.com/cerbagge/healthindicator" },
+  "license": "LicenseRef-HealthIndicator",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.cerba.healthindicator.HealthIndicator"]
+  },
+  "mixins": ["healthindicator.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}
