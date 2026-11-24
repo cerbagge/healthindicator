@@ -32,9 +32,9 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * 머리 위 체력. 서버가 보내 주는 체력 값만 쓴다.
+ * 머리 위 체력. 서버가 보내 주는 체력 값만 쓴다. 위치는 이름표 바로 위(이름표가 없으면 머리 바로 위)로 고정하고 옮길 수 없다.
  * 안 보이는 상대의 위치를 알려 주지 않도록, 다음 상대는 표시하지 않는다.
- * - 몸(머리·가슴·발)이 블록에 가려 카메라에서 보이지 않는 상대(높이·좌우를 옮겨도 체력만 벽 위로 보이지 않게)
+ * - 몸(머리·가슴·발)이 블록에 가려 카메라에서 보이지 않는 상대(머리 위에 뜬 체력만 벽 위로 보이지 않게)
  * - 투명한 상대(투명화 물약)
  * - 서버가 팀 설정으로 이름표를 숨긴 플레이어, 웅크린 플레이어
  * 글자와 하트는 깊이 검사를 하는 층에 그려서 벽 너머로 비치지 않는다.
@@ -64,13 +64,11 @@ public final class HealthRenderer {
         MinecraftClient mc = MinecraftClient.getInstance();
         int color = c.gradient ? gradient(ratio(e)) : c.color;
         float s = 0.025f * c.scale / 100f;
-        // 높이·좌우 설정은 1블록 = 100 이다. 글자는 y 에서 아래로 그려진다.
-        double y = e.getHeight() + bottom(e, c) + pixels(e, c) * s;
+        // 글자는 y 에서 아래로 그려진다.
+        double y = e.getHeight() + bottom(e) + pixels(e, c) * s;
         matrices.push();
         matrices.translate(0, y, 0);
         matrices.multiply(dispatcher.getRotation());
-        // 카메라 쪽 축은 화면 오른쪽이 음수다.
-        matrices.translate(-c.side / 100.0, 0, 0);
         matrices.scale(-s, -s, s);
         if (icons(e, c)) {
             drawHearts(e, c, matrices, consumers);
@@ -199,10 +197,9 @@ public final class HealthRenderer {
     // ── 배치 ────────────────────────────────────────────────
 
     /** 머리 꼭대기에서 체력 표시 바닥까지(블록). 이름표가 있으면 그 위에 둔다. */
-    private static float bottom(LivingEntity e, Config c) {
+    private static float bottom(LivingEntity e) {
         boolean label = e instanceof PlayerEntity || e.shouldRenderName();
-        float b = label ? LABEL_BASE + (scoreLine(e) ? LABEL_STEP : 0) + LINE + NAME_GAP : HEAD_GAP;
-        return b + c.height / 100f;
+        return label ? LABEL_BASE + (scoreLine(e) ? LABEL_STEP : 0) + LINE + NAME_GAP : HEAD_GAP;
     }
 
     /** 이 플레이어 이름표에 서버 점수 줄(이름 아래 표시)이 붙는지. 바닐라와 같이 10블록 안에서만 붙는다. */

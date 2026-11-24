@@ -24,10 +24,6 @@ public final class Config {
     public boolean enabled = true;
     /** NUMBER(15), NUMBER_MAX(15 / 20), HEARTS(하트 그림), BAR(막대), PERCENT(75%). */
     public Look look = Look.NUMBER;
-    /** 이름표 위에서 더 올리거나 내리는 높이(1블록 = 100). */
-    public int height = 0;
-    /** 좌우로 옮기는 거리(1블록 = 100). */
-    public int side = 0;
     /** 글자 크기(%). */
     public int scale = 100;
     /** 이 거리(블록) 안의 상대만 표시한다. */
@@ -58,8 +54,6 @@ public final class Config {
         }
         if (c == null) c = new Config();
         if (c.look == null) c.look = Look.NUMBER;
-        c.height = Math.max(-100, Math.min(300, c.height));
-        c.side = Math.max(-200, Math.min(200, c.side));
         c.scale = Math.max(50, Math.min(200, c.scale));
         c.distance = Math.max(4, Math.min(64, c.distance));
         c.save();
