@@ -2,8 +2,8 @@
 
 **English** | [한국어](README.ko.md)
 
-> **Official release: [1.1.0](https://github.com/cerbagge/healthindicator/releases/tag/v1.1.0)**  
-> `healthindicator-mc1.20.1-1.1.0.jar` SHA-256: `aa8ef1afacb5c9734660330f7ab79dd60779c7cefd4710e88b7932258dbcbd59`  
+> **Official release: [1.2.0](https://github.com/cerbagge/healthindicator/releases/tag/v1.2.0)**  
+> `healthindicator-mc1.20.1-1.2.0.jar` SHA-256: `50b8eaaba9f40dbad738953f30b8b43ae81c70b894b04e8ff20361effd5d166d`  
 > Any file with a different hash is not an official release.
 
 A client-side Minecraft 1.20.1 Fabric mod that shows health above players and mobs.
